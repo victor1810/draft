@@ -1,10 +1,11 @@
-﻿// Напишите программу на C # Sharp, чтобы отобразить куб числа до заданного целого числа.
+﻿// Напишите программу на C # Sharp для отображения таблицы умножения заданного целого числа.
 
-int num = 1;
+Console.Write("Введите число для расчёта: ");
+int num = int.Parse(Console.ReadLine());
+int count = 1;
 
-while (num < 6)
+while (count < 11)
 {
-    int cube = (num * num * num);
-    Console.Write($"{cube}, ");
-    num++;
+    Console.WriteLine($"{num} x {count} = {num * count}");
+    count++;
 }
