@@ -1,11 +1,22 @@
-﻿// Напишите программу на C # Sharp для отображения таблицы умножения заданного целого числа.
+﻿// Как упорядочить массив от большего к меньшему
 
-Console.Write("Введите число для расчёта: ");
-int num = int.Parse(Console.ReadLine());
-int count = 1;
-
-while (count < 11)
+int[] arr = { 1, 15, 8, 7, 1, 5, 9, 21, 4 };
+void SelectionSort(int[] array)
 {
-    Console.WriteLine($"{num} x {count} = {num * count}");
-    count++;
+    for (int i = 0; i < array.Length - 1; i++)
+    {
+        int minPosition = i;
+        for (int j = i + 1; j < array.Length; j++)
+        {
+            if (array[j] < array[minPosition])
+            {
+                minPosition = j;
+            }
+        }
+        int temporary = array[i];
+        array[i] = array[minPosition];
+        array[minPosition] = temporary;
+    }
 }
+
+SelectionSort(arr);
