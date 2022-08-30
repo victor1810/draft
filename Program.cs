@@ -1,22 +1,18 @@
-﻿// Как упорядочить массив от большего к меньшему
+﻿/* Напишите программу, которая принимает на вход пятизначное
+число и проверяет, является ли оно палиндромом.
 
-int[] arr = { 1, 15, 8, 7, 1, 5, 9, 21, 4 };
-void SelectionSort(int[] array)
-{
-    for (int i = 0; i < array.Length - 1; i++)
-    {
-        int minPosition = i;
-        for (int j = i + 1; j < array.Length; j++)
-        {
-            if (array[j] < array[minPosition])
-            {
-                minPosition = j;
-            }
-        }
-        int temporary = array[i];
-        array[i] = array[minPosition];
-        array[minPosition] = temporary;
-    }
-}
+14212 -> нет
+12821 -> да
+23432 -> да */
 
-SelectionSort(arr);
+Console.WriteLine("Введите пятизначное число");
+string num = Console.ReadLine();
+
+
+
+// Console.Write("Введите число: ");
+// string number = Console.ReadLine();
+
+
+
+
