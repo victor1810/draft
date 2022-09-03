@@ -227,7 +227,10 @@
 [3, 7, 23, 12] -> 19
 [-4, -6, 89, 6] -> 0                           */
 
-// int[] array = { new Random().Next(-99, 100), new Random().Next(-99, 100), new Random().Next(-99, 100), new Random().Next(-99, 100) };
+// int[] array = { new Random().Next(-99, 100),
+//                 new Random().Next(-99, 100),
+//                 new Random().Next(-99, 100),
+//                 new Random().Next(-99, 100)};
 // int sum = 0;
 // for (int i = 0; i < array.Length; i++)
 //     if (i % 2 != 0)
@@ -242,7 +245,12 @@
 
 [3 7 22 2 78] -> 76                                             */
 
-// int[] array = { new Random().Next(-99, 100), new Random().Next(-99, 100), new Random().Next(-99, 100), new Random().Next(-99, 100), new Random().Next(-99, 100) };
+// int[] array = { new Random().Next(-99, 100),
+//                 new Random().Next(-99, 100),
+//                 new Random().Next(-99, 100),
+//                 new Random().Next(-99, 100),
+//                 new Random().Next(-99, 100)};
+
 // for (int i = 0; i < array.Length; i++)
 //     array[i] = new Random().Next(1, 10);
 
@@ -260,4 +268,51 @@
 // int diff = max - min;
 // Console.Write($"[{array[0]}, {array[1]}, {array[2]}, {array[3]}, {array[4]}] ");
 // Console.WriteLine($"-> max({max}) - min({min}) = {diff}");
+
+
+// double a, b, c;
+// double x, y;
+// //Пользователь вводит стороны прямоугольника и квадрата
+// Console.Write("Введи в 1-ю сторону прямоугольника: ");
+// a = Convert.ToDouble(Console.ReadLine()!);
+// Console.Write("Введи в 2-ю сторону прямоугольника: ");
+// b = Convert.ToDouble(Console.ReadLine()!);
+// Console.Write("Введи сторону квадрата: ");
+// c = Convert.ToDouble(Console.ReadLine()!);
+// Console.WriteLine();
+// //Условия вывода значений
+// if ((a < c) | (b < c))
+//     Console.WriteLine("Невозможно вместить квадрат. Одна из сторон прямоугольника меньше стороны квадрата");
+// else
+// {
+//     x = (a - a % c) / c;
+//     y = (b - b % c) / c;
+//     Console.WriteLine("В прямоугольнике помещается: {0} квадратов", x * y);
+// }
+// Console.ReadKey();
+
+
+// Дано расстояние в метрах. Найти число полных километров в нем.
+
+// Console.Write("Введите расстояние в метрах -> ");
+// double metre = Convert.ToDouble(new Random().Next(1, 10000));
+
+// double kilometer = ((metre - metre % 1000) / 1000);
+
+// Console.WriteLine($"В {metre} метрах находится {kilometer} киллометров");
+
+
+
+int[] CreatedArray(int size, int min = 0, int max = 100)
+{
+    int[] array = new int[size];
+    for (int i = 0; i < size; i++)
+        array[i] = new Random().Next(min, max + 1);
+    return array;
+}
+
+foreach (var _el in CreatedArray(8))
+    Console.Write($"{_el} ");
+
+
 
