@@ -1,55 +1,63 @@
-﻿// Дано расстояние в метрах. Найти число полных километров в нем.
+﻿/* Задача 56: Задайте прямоугольный двумерный массив. Напишите программу,
+которая будет находить строку с наименьшей суммой элементов.          */
 
-// Console.Write("Введите расстояние в метрах -> ");
-// double metre = Convert.ToDouble(new Random().Next(1, 10000));
+int m = InputNumbers("");
+int n = InputNumbers("");
 
-// double kilometer = ((metre - metre % 1000) / 1000);
+int[,] array = new int[m, n];
+CreateArray(array);
+PrintArray(array);
 
-// Console.WriteLine($"В {metre} метрах находится {kilometer} киллометров");
+int minSumLine = 0;
+int minSum = SumLineElements(array, 0);
+for (int i = 1; i < array.GetLength(0); i++)
+{
+    int tempMinSum = SumLineElements(array, i);
+    if (minSum > tempMinSum)
+    {
+        minSum = tempMinSum;
+        minSumLine = i;
+    }
+}
 
+Console.WriteLine($"\n{minSumLine + 1} - строкa с наименьшей суммой ({minSum})");
 
-// Функция рандомного набора массива
-// int[] CreatedArray(int size, int min = 0, int max = 100)
-// {
-//     int[] array = new int[size];
-//     for (int i = 0; i < size; i++)
-//         array[i] = new Random().Next(min, max + 1);
-//     return array;
-// }
+void CreateArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            array[i, j] = new Random().Next(10);
+        }
+    }
+}
 
-// foreach (var _el in CreatedArray(8))
-//     Console.Write($"{_el} ");
+int SumLineElements(int[,] array, int i)
+{
+    int sumLine = array[i, 0];
+    for (int j = 1; j < array.GetLength(1); j++)
+    {
+        sumLine += array[i, j];
+    }
+    return sumLine;
+}
 
-/* Задача 41: Пользователь вводит с клавиатуры M чисел.
-Посчитайте, сколько чисел больше 0 ввёл пользователь.
+int InputNumbers(string input)
+{
+    Console.Write(input);
+    int output = new Random().Next(3, 10);
+    return output;
+}
 
-0, 7, 8, -2, -2 -> 2
-1, -7, 567, 89, 223-> 3                         */
-
-// Console.Write($"Введи несколько чисел -> ");
-// int m = Convert.ToInt32(Console.ReadLine());
-// int[] massiveNumbers = new int[m];
-
-// void InputNumbers(int m)
-// {
-//     for (int i = 0; i < m; i++)
-//     {
-//         Console.Write($"Введи {i + 1} число: ");
-//         massiveNumbers[i] = Convert.ToInt32(Console.ReadLine());
-//     }
-// }
-
-// int Comparison(int[] massiveNumbers)
-// {
-//     int count = 0;
-//     for (int i = 0; i < massiveNumbers.Length; i++)
-//     {
-//         if (massiveNumbers[i] > 0) count += 1;
-//     }
-//     return count;
-// }
-
-// InputNumbers(m);
-
-// Console.WriteLine($"Введено чисел больше 0: {Comparison(massiveNumbers)} ");
-
+void PrintArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write(array[i, j] + " ");
+        }
+        Console.WriteLine();
+    }
+}
